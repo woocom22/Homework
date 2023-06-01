@@ -12,9 +12,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::group(['middleware' => 'auth' , 'admin'] , function(){
+    Route::get('/admin', 'App\Http\Controllers\HomeController@admin');
+
+});
+
+Route::get('/home', 'App\Http\Controllers\HomeController@home')->name('home');
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return view('frontend.index');
 });
 
 Route::middleware([
@@ -22,7 +29,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/redirect', function () {
         return view('dashboard');
     })->name('dashboard');
 });
