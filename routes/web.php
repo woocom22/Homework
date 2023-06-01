@@ -33,3 +33,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// frontend route
+
+Route::get('about', 'App\Http\Controllers\HomeController@about')->name('about');
+Route::get('contact', 'App\Http\Controllers\HomeController@contact')->name('contact');
+Route::get('single-post', 'App\Http\Controllers\HomeController@singlePost')->name('singlePost');
+Route::get('category', 'App\Http\Controllers\HomeController@category')->name('category');

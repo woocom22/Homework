@@ -10,8 +10,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Blog</a></li>
-          <li><a href="single-post.html">Single Post</a></li>
-          <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="{{ route('singlePost')}}">Single Post</a></li>
+          <li class="dropdown"><a href="{{ route('category') }}"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="search-result.html">Search Result</a></li>
               <li><a href="#">Drop Down 1</a></li>
@@ -30,8 +30,8 @@
             </ul>
           </li>
 
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{ route('about') }}">About</a></li>
+          <li><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 

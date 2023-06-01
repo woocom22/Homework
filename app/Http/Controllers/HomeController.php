@@ -22,8 +22,17 @@ class HomeController extends Controller
 
     }
 
-    public function admin(){
-        return view('admin.dashboard');
+    public function about(){
+        return view('frontend.about');
+    }
+    public function contact(){
+        return view('frontend.contact');
+    }
+     public function singlePost(){
+        return view('frontend.single-post');
+    }
+    public function category(){
+        return view('frontend.category');
     }
 
 
