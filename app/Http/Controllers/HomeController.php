@@ -31,9 +31,7 @@ class HomeController extends Controller
      public function singlePost(){
         return view('frontend.single-post');
     }
-    public function category(){
-        return view('frontend.category');
-    }
+
 
 
 }

@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'auth' , 'admin'] , function(){
     Route::get('/admin', 'App\Http\Controllers\HomeController@admin');
+    Route::get('/admin/category', 'App\Http\Controllers\CategoryController@index')->name('category.index');
+    Route::post('/admin/category/store', 'App\Http\Controllers\CategoryController@store')->name('category.store');
+    Route::post('/admin/category/update', 'App\Http\Controllers\CategoryController@update')->name('category.update');
+    Route::get('/admin/category/create', 'App\Http\Controllers\CategoryController@create')->name('category.create');
+    Route::get('/admin/category/edit/{id}', 'App\Http\Controllers\CategoryController@edit')->name('category.edit');
+    Route::get('/admin/category/delete/{id}', 'App\Http\Controllers\CategoryController@delete')->name('category.delete');
+
+    // Router for post
+    Route::resource('posts', 'App\Http\Controllers\postController');
 
 });
 
