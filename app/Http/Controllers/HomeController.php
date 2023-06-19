@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,14 +24,32 @@ class HomeController extends Controller
 
     }
 
+
     public function about(){
         return view('frontend.about');
     }
+
+    public function index(){
+        return view('frontend.index');
+    }
+
     public function contact(){
         return view('frontend.contact');
     }
-     public function singlePost(){
+
+    public function singlePost(){
         return view('frontend.single-post');
+    }
+
+    public function single_post($slug){
+        $sPost = Post::where('slug', $slug)->first();
+        return view('frontend.single-post', compact('sPost'));
+    }
+
+    public function categories($slug){
+        $category = Category::where('slug', $slug)->first();
+        $cPost = Post::where('category_id', $category->id)->latest()->take(5)->get();
+        return view('frontend.category-post', compact('category', 'cPost'));
     }
 
 

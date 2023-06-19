@@ -28,6 +28,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('build/admin/assets/css/style.css') }}" rel="stylesheet">
+  @stack('style')
+
 
 </head>
 
@@ -62,6 +64,7 @@
   <script src="{{ asset('build/admin/assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
   <script src="{{ asset('build/admin/assets/vendor/tinymce/tinymce.min.js') }}"></script>
   <script src="{{ asset('build/admin/assets/vendor/php-email-form/validate.js') }}"></script>
+  @stack('script')
 
   <!-- Template Main JS File -->
   <script src="{{ asset('build/admin/assets/js/main.js') }}"></script>

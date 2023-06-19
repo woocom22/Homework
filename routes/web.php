@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth' , 'admin'] , function(){
 
     // Router for post
     Route::resource('posts', 'App\Http\Controllers\postController');
+    Route::get('/admin/post/delete/{id}' , 'App\Http\Controllers\Postcontroller@delete')->name('posts.delete');
+
 
 });
 
@@ -45,7 +47,11 @@ Route::middleware([
 
 // frontend route
 
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('index');
+Route::get('post-detail/{slug}', 'App\Http\Controllers\HomeController@single_post')->name('single-post');
+Route::get('categories/{slug}', 'App\Http\Controllers\HomeController@categories')->name('categories');
 Route::get('about', 'App\Http\Controllers\HomeController@about')->name('about');
 Route::get('contact', 'App\Http\Controllers\HomeController@contact')->name('contact');
 Route::get('single-post', 'App\Http\Controllers\HomeController@singlePost')->name('singlePost');
 Route::get('category', 'App\Http\Controllers\HomeController@category')->name('category');
+

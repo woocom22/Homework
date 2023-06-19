@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tags')->nullable();
             $table->string('added_by')->nullable();
             $table->string('photo')->nullable();
-            $table->string('stutas')->nullable();
+            $table->string('status')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();
         });

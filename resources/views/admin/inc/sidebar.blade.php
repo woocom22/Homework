@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{ route('home')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -28,7 +28,28 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Forms Nav -->
+      </li>
+
+      {{-- Posts --}}
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav-posts" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Posts</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav-posts" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ route('posts.index') }}">
+              <i class="bi bi-circle"></i><span>All Posts</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('posts.create') }}">
+              <i class="bi bi-circle"></i><span>Add Post</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Forms Nav -->
 
     </ul>
 

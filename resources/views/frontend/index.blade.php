@@ -79,26 +79,27 @@
           </div>
 
         </div>
-
+        @php
+            $Posts = App\Models\Post::latest()->take(3)->get();
+        @endphp
         <div class="col-lg-8">
           <div class="row g-5">
             <div class="col-lg-4 border-start custom-border">
+                @foreach ($Posts as $item)
+
               <div class="post-entry-1">
-                <a href="single-post.html"><img src="{{ asset('build/frontend/assets/img/post-landscape-2.jpg') }}" alt="" class="img-fluid"></a>
-                <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
+                <a href="{{ route('single-post', $item->slug )}}"><img src="{{ asset('uploads/post/'.$item->photo ) }}" alt="" class="img-fluid"></a>
+                <div class="post-meta"><span class="date">{{ $item->name }}</span> <span class="mx-1">&bullet;</span> <span>{{ date('M D Y', strtotime ($item->created_at))}}</span></div>
+                <h2><a href="{{ route('single-post', $item->slug )}}">{{ $item->title}}</a></h2>
               </div>
-              <div class="post-entry-1">
-                <a href="single-post.html"><img src="{{ asset('build/frontend/assets/img/post-landscape-5.jpg') }}" alt="" class="img-fluid"></a>
-                <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
-                <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-              </div>
-              <div class="post-entry-1">
-                <a href="single-post.html"><img src="{{ asset('build/frontend/assets/img/post-landscape-7.jpg') }}" alt="" class="img-fluid"></a>
-                <div class="post-meta"><span class="date">Design</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
-                <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the Web?</a></h2>
-              </div>
+
+              @endforeach
+
             </div>
+
+
+
+
             <div class="col-lg-4 border-start custom-border">
               <div class="post-entry-1">
                 <a href="single-post.html"><img src="{{ asset('build/frontend/assets/img/post-landscape-3.jpg') }}" alt="" class="img-fluid"></a>
